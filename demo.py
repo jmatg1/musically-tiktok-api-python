@@ -1,3 +1,4 @@
+print ("asd")
 from api import api
 from time import sleep
 import sys
@@ -25,8 +26,8 @@ if __name__ == "__main__":
     api.global_veriable['device_id'] = "6648944787888948741"
     api.global_veriable['iid'] = "6648944787888948741"
     api.global_veriable['openudid'] = "6vchx2vx3ubd051q"
-    username = ""
-    password = ""
+    username = "sodo76"
+    password = "asdasd"
     login = api.login(username,password)
     login_(login)
 

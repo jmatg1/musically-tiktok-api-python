@@ -54,12 +54,12 @@ class helper():
         return requests.post(url, headers=headers, data=posts)
     def default_veriable(self,data = {}):
         items = {}
-        items['app_language']  = "tr"
-        items['language']  = "tr"
-        items['region']  = "tr"
+        items['app_language']  = "en"
+        items['language']  = "en"
+        items['region']  = "en"
         items['app_type']  = "normal"
-        items['sys_region']  = "TR"
-        items['carrier_region']  = "TR"
+        items['sys_region']  = "EN"
+        items['carrier_region']  = "EN"
         items['carrier_region_v2']  = "286"
         items['build_number']  = "8.4.0"
         items['timezone_offset']  = "10800"
@@ -67,7 +67,7 @@ class helper():
         items['mcc_mnc']  = "28601"
         items['is_my_cn']  = "0"
         items['fp']  = ""
-        items['account_region']  = "TR"
+        items['account_region']  = "EN"
         items['iid']  = "6620659482206930694"
         items['ac']  = "wifi"
         items['channel']  = "googleplay"
@@ -91,6 +91,9 @@ class helper():
         items['ts']  = int(round(time.time() * 1000))
         items['as']  = "a1qwert123"
         items['cp']  = "cbfhckdckkde1"
+        
+#         items['schema_type']  = ""
+#         items['object_id']  = ""
 
         if(data.__len__()>0):
             for x,y in data.items():

@@ -151,3 +151,42 @@ class api():
         url = self.api_url + "aweme/v1/challenge/aweme/?ch_id="+cid+"&count=20&offset=0&max_cursor=0&type=5&query_type=0&is_cold_start=1&pull_type=1&"+self.helper.query(self.helper.default_veriable(self.global_veriable))
         data = self.helper.request_get(self,url)
         return data.json()
+    def getQRCode(self,user_id = '6594722549190574086',schemaType = 4):
+           data = self.helper.default_veriable()
+           data['schema_type'] = schemaType
+           data['object_id'] = user_id
+           costum_headers = {
+                'content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+               }        
+           url = self.api_url + "aweme/v1/fancy/qrcode/info/"
+           data = self.helper.request_post(url,posts=data,costum_headers=costum_headers)
+           return data.json()
+    def update_live_stream_status(self,id_room = '',stream_id = '',session = {}):
+        url = self.api_url + "aweme/v1/room/enter/?id_room="+id_room+"&stream_id="+stream_id+"&"+self.helper.query(self.helper.default_veriable(self.global_veriable))
+        data = self.helper.request_get(self,url,session=session)
+        return data.json()
+    def join_live_stream(self,id_room = '',session = {}):
+        url = self.api_url + "aweme/v1/room/leave/?id_room="+id_room+self.helper.query(self.helper.default_veriable(self.global_veriable))
+        data = self.helper.request_get(self,url,session=session)
+        return data.json()   
+    def get_favorite_videos(self,user_id = '6594722549190574086',count = '24',session = {}):
+        url = "https://m.tiktok.com/aweme/v1/aweme/favorite/?user_id="+user_id+"&count="+count
+        data = self.helper.request_get(self,url,session=session)
+        return data.json()   
+    def list_comments(self,aweme_id = '',cursor = '0'):
+         url = self.api_url + "aweme/v1/comment/list/aweme_id="+aweme_id+"&cursor="+cursor+"&comment_style=2&digged_cid=&insert_cids=&"+self.helper.query(self.helper.default_veriable(self.global_veriable))
+         data = self.helper.request_get(self,url)
+         return data.json()
+    def test(self,user_id = '',cursor = '0',session={}):
+         url = "https://api.tiktokv.com/aweme/v2/coupon/list/"
+         data = self.helper.request_get(self,url,session=session)
+         return data.json()
+# https://m.tiktok.com/aweme/v1/aweme/favorite/?user_id=6562737872926261254&count=24&_signature=FV5-2RASSRhCaTaCaJthMBVefs
+       
+       
+       
+       
+       
+       
+       
+       
